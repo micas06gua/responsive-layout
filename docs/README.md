@@ -9,18 +9,22 @@ There are four blocks defined and exported by this app:
 - `responsive-layout.tablet`
 - `responsive-layout.phone`
 
+> `responsive-layout.mobile` contains the tablet and mobile breakpoint.
+
 Each of them have `composition: children`, which means that they expect to receive an array of `children` blocks to be rendered by them, if the current screen-size is right for their breakpoint.
 
 ## Example usage
 
 This is an example on how to use this:
 
-```json
+```jsonc
   "store.custom#about-us": {
     "blocks": [
       "responsive-layout.desktop#testing",
       "responsive-layout.tablet#testing",
       "responsive-layout.phone#testing"
+      // If `tablet` and `phone` are equal, just use `mobile`
+      // "responsive-layout.mobile#testing",
     ]
   },
 
@@ -64,4 +68,3 @@ This is an example on how to use this:
 ```
 
 Notice that you could use _any_ array of blocks as `children`, given that they are allowed by the `block` that is directly above your `responsive-layout`.
-
